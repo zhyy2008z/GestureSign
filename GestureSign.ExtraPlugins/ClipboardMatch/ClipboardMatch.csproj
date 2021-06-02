@@ -9,8 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GestureSign.ExtraPlugins.ClipboardMatch</RootNamespace>
     <AssemblyName>GestureSign.ClipboardMatch.Plugin</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,12 +63,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\GestureSign.Common\GestureSign.Common.csproj">
-      <Project>{038047a4-e3f8-4b49-9762-7f63971b8319}</Project>
-      <Name>GestureSign.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="ClipboardMatchControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -84,9 +80,15 @@
   <ItemGroup>
     <None Include="zh.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GestureSign.Common\GestureSign.Common.csproj">
+      <Project>{038047a4-e3f8-4b49-9762-7f63971b8319}</Project>
+      <Name>GestureSign.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) "$(TargetDir)\Plugins"</PostBuildEvent>
+    <PostBuildEvent>copy $(TargetPath) "$(TargetDir)Plugins\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

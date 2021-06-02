@@ -97,6 +97,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Runtime"></Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Input\InputPoint.cs" />

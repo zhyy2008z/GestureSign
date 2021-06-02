@@ -18,6 +18,9 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -85,11 +88,11 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
-    <Reference Include="Windows, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Windows Kits\10\UnionMetadata\Windows.winmd</HintPath>
-    </Reference>
+    <Reference Include="Windows.ApplicationModel" />
+    <Reference Include="Windows.Management" />
+    <Reference Include="Windows.Storage" />
     <Reference Include="WindowsBase" />
+    <Reference Include="System.Runtime"></Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivateWindow\ActivateWindowPlugin.cs" />

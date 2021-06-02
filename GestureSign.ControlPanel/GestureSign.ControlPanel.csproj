@@ -33,6 +33,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -142,9 +143,8 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="UIAutomationProvider" />
-    <Reference Include="Windows">
-      <HintPath>C:\Program Files (x86)\Windows Kits\10\UnionMetadata\Windows.winmd</HintPath>
-    </Reference>
+    <Reference Include="Windows.ApplicationModel" />
+    <Reference Include="Windows.Management" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
