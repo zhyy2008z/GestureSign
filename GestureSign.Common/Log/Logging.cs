@@ -1,5 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using System.Text;
+
 using GestureSign.Common.Configuration;
 
 namespace GestureSign.Common.Log
@@ -8,11 +11,9 @@ namespace GestureSign.Common.Log
     {
         private static string _logFilePath;
 
-        private class StreamWriterWithTimestamp : StreamWriter
+        private class StreamWriterWithTimestamp : TextWriter
         {
-            public StreamWriterWithTimestamp(Stream stream) : base(stream)
-            {
-            }
+            public override Encoding Encoding => Encoding.UTF8;
 
             private string GetTimestamp()
             {
@@ -26,12 +27,14 @@ namespace GestureSign.Common.Log
 
             public override void WriteLine(string value)
             {
-                base.WriteLine(GetTimestamp() + GetVersion() + value);
+                var line = GetTimestamp() + GetVersion() + value;
+                File.AppendAllLines(LogFilePath, Enumerable.Repeat(line, 1));
             }
 
             public override void Write(string value)
             {
-                base.Write(GetTimestamp() + GetVersion() + value);
+                var text = GetTimestamp() + GetVersion() + value;
+                File.AppendAllText(LogFilePath, text);
             }
         }
 
@@ -44,7 +47,7 @@ namespace GestureSign.Common.Log
             {
                 _logFilePath = Path.Combine(AppConfig.ApplicationDataPath, "GestureSign.log");
                 CheckLogSize(_logFilePath);
-                var sw = new StreamWriterWithTimestamp(new FileStream(_logFilePath, FileMode.Append, FileAccess.Write, FileShare.ReadWrite)) { AutoFlush = true };
+                var sw = new StreamWriterWithTimestamp();
                 Console.SetOut(sw);
                 Console.SetError(sw);
                 result = true;
